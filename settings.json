@@ -67,7 +67,7 @@
     "rtl": false,
     "alwaysShowChat": false,
     "chatAndUsers": false,
-    "lang": "en-gb"
+    "lang": "${LANG}"
   },
 
   /* Should we suppress errors from being visible in the default Pad Text? */
@@ -113,7 +113,7 @@
   "requireAuthorization" : false,
 
   /*when you use NginX or another proxy/ load-balancer set this to true*/
-  "trustProxy" : false,
+  "trustProxy" : true,
 
   /* Privacy: disable IP logging */
   "disableIPlogging" : false,
@@ -123,11 +123,11 @@
   /*
   "users": {
     "admin": {
-      "password": "changeme1",
+      "password": "${ADMIN_PW}",
       "is_admin": true
     },
-    "user": {
-      "password": "changeme1",
+    "${USER_NAME}": {
+      "password": "${USER_PW}",
       "is_admin": false
     }
   },
