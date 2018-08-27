@@ -2,25 +2,25 @@
 #
 # https://github.com/ether/etherpad-docker
 #
-# Developed from a version by Evan Hazlett at https://github.com/arcus-io/docker-etherpad 
-#
 # Version 1.0
 
-# Use Docker's nodejs, which is based on ubuntu
-FROM node:latest
-MAINTAINER John E. Arnold, iohannes.eduardus.arnold@gmail.com
+# Use Docker's nodejs, which is based on alpine
+FROM node:10.9.0-alpine
+MAINTAINER Nils Jakobi, jakobi.nils@gmail.com
 
 # Get Etherpad-lite's other dependencies
-RUN apt-get update && apt-get install -y \
-  build-essential \
+RUN apk update && apk add \
+  gcc \
+  g++ \
+  libc-dev \
+  make \
   curl \
   gzip \
-  git-core \
-  libssl-dev \
-  pkg-config \
-  python \
-  supervisor \
-  && rm -rf /var/lib/apt/lists/*
+  git \
+  libssl1.0 \
+  zlib \
+  python3 \
+  supervisor
 
 # Grab the latest Git version
 RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
